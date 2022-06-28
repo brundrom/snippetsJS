@@ -61,7 +61,29 @@ console.log("\n");
 // e.g. function getWordStructure(word)
 // В консоли:
 // Слово (word) состоит из  (число) гласных и (число) согласных букв
+const wordInfo = function (thisWord) {
 
+    thisWord = thisWord.toLowerCase();
+
+    let vowels = 'aeioquy';
+    let conson = 'bcdfghjklmnprstvwxz';
+    let vcount = 0;
+    let ccount = 0;
+
+    for (let i = 0; i <= thisWord.length; i++) {
+        for (let x = 0; x < vowels.length; x++) {
+            if (thisWord[i] === vowels[x]) vcount += 1;
+        }
+
+        for (let n = 0; n < conson.length; n++) {
+            if (thisWord[i] === conson[n]) ccount += 1;
+        }
+    }
+
+    console.log("Your word has vowels = " + vcount + " and consons = " + ccount);
+}
+
+wordInfo("Soulmate");
 
 
 // Проверки: 'case', 'Case', 'Check-list'
