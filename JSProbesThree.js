@@ -83,7 +83,9 @@ const wordInfo = function (thisWord) {
     console.log("Your word has vowels = " + vcount + " and consons = " + ccount);
 }
 
-wordInfo("Soulmate");
+wordInfo("case");
+wordInfo("Case");
+wordInfo("Check-list");
 
 
 // Проверки: 'case', 'Case', 'Check-list'
