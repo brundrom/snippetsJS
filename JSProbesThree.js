@@ -87,10 +87,49 @@ wordInfo("case");
 wordInfo("Case");
 wordInfo("Check-list");
 
+console.log("\n");
 
 // Проверки: 'case', 'Case', 'Check-list'
 
 // 4**. Написать функцию, которая проверяет, является ли слово палиндромом
 // e.g. function isPalindrom(word)
+
+const isPalindrom = function(firstWord, secondWord) {
+    if (firstWord.length != secondWord.length) {
+        console.log('Impossible. Different length.\n');
+    } else {
+        //all words to lowerCase;
+        let firstWordL = firstWord.toLowerCase();
+        let secondWordL = secondWord.toLowerCase();
+        let secondVersaWord = '';
+        for (let i = secondWord.length - 1; i >= 0; i--) {
+            //console.log(i + ': ' + secondWordL[i]);
+            secondVersaWord += secondWordL[i];            
+        }
+
+        let result = false; //default
+
+        for (let i = 0; i <= firstWord.length; i++) {
+            if(firstWordL[i] != secondVersaWord[i]) {
+                result = false;
+                break;
+            } else {
+                result = true;
+            }
+        }
+
+        if(result != false) {
+            console.log("Yes. Your words are palindrome.\n");
+        } else {
+            console.log("No. Your words aren't palindrome\n");
+        }
+    }
+}
+
+isPalindrom('Arabica', 'AcibUra');
+isPalindrom('ArAbIcA', 'aCiBaRA');
+isPalindrom('abba', 'Abba');
+isPalindrom('cat', 'DOG');
+isPalindrom('bird', 'cat');
 
 // Проверки: 'abba', 'Abba'
