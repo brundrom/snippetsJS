@@ -16,14 +16,14 @@ const expIt = function(numpow) {
     result = 1;
     for (let i = 0; i < numpow; i++) {
         result *= digit;
+        console.log(result + ' ');
     }
-    console.log(result);
+    console.log("\n");
 }
 
 expIt(5); //32
 expIt(6); //64
 
-console.log("\n");
 
 // 2. Написать скрипт, который выведет 5 строк в консоль таким образом, чтобы в первой строчке выводилось :), во второй :):) и так далее
 // Пример в консоли:
@@ -45,14 +45,18 @@ console.log("\n");
 // 2*. Преобразовать 2 задачу в функцию, принимающую на вход строку, которая и будет выводиться в консоль (как в условии смайлик), а также количество строк для вывода
 // e.g. function printSmile(stroka, numberOfRows)
 const printSmile = function(smile, howmuch) {
-    let allSmiles = smile;
-    for (let i = 0; i < howmuch; i++) {
-        console.log(allSmiles);
-        allSmiles += smile;
-    }
+    if (typeof(smile) === 'string') {
+        let allSmiles = smile;
+        for (let i = 0; i < howmuch; i++) {
+            console.log(allSmiles);
+            allSmiles += smile;
+        }
+    } else console.log("Incorrect data!\n");
+    
 }
 
-printSmile(':)', 10) //Ten lines with smiles
+printSmile(10, 10);
+printSmile(':)', 10); //Ten lines with smiles
 
 console.log("\n");
 
