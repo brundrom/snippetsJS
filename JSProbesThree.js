@@ -97,24 +97,18 @@ console.log("\n");
 
 // 4**. Написать функцию, которая проверяет, является ли слово палиндромом
 // e.g. function isPalindrom(word)
-
-const isPalindrom = function(firstWord, secondWord) {
-    if (firstWord.length != secondWord.length) {
-        console.log('Impossible. Different length.\n');
-    } else {
-        //all words to lowerCase;
-        let firstWordL = firstWord.toLowerCase();
-        let secondWordL = secondWord.toLowerCase();
-        let secondVersaWord = '';
-        for (let i = secondWord.length - 1; i >= 0; i--) {
-            //console.log(i + ': ' + secondWordL[i]);
-            secondVersaWord += secondWordL[i];            
+const isPalindrome = function(word) {
+    if (typeof(word) === 'string') {
+        let itWord = word.toLowerCase();
+        let itReverseWord = '';
+        for(let i = itWord.length - 1; i >= 0; i--) {
+            itReverseWord += itWord[i];
         }
 
         let result = false; //default
 
-        for (let i = 0; i <= firstWord.length; i++) {
-            if(firstWordL[i] != secondVersaWord[i]) {
+        for (let i = 0; i <= itWord.length; i++) {
+            if(itWord[i] != itReverseWord[i]) {
                 result = false;
                 break;
             } else {
@@ -123,17 +117,19 @@ const isPalindrom = function(firstWord, secondWord) {
         }
 
         if(result != false) {
-            console.log("Yes. Your words are palindrome.\n");
+            console.log("Yes. Your word is palindrome.\n");
         } else {
-            console.log("No. Your words aren't palindrome\n");
+            console.log("No. Your word isn't palindrome\n");
         }
-    }
+    } else console.log('Incorrect data\n');
 }
 
-isPalindrom('Arabica', 'AcibUra');
-isPalindrom('ArAbIcA', 'aCiBaRA');
-isPalindrom('abba', 'Abba');
-isPalindrom('cat', 'DOG');
-isPalindrom('bird', 'cat');
+isPalindrome('Arabica');    //no
+isPalindrome('ArAbIcA');    //no
+isPalindrome('abba');       //yes
+isPalindrome('Abba');       //yes
+isPalindrome(123);          //???
+isPalindrome('maam');       //yes
+isPalindrome('Mama');       //no
 
 // Проверки: 'abba', 'Abba'
